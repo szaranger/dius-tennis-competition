@@ -23,9 +23,9 @@ test('Points won: Player 1, Expected: 1-0', '1-0', match.score(true))
 
 function test(msg, a, b) {
   if (a === b) {
-    console.log(msg, '\x1b[42m', 'Pass');
+    console.log(msg, '\x1b[42m', 'Pass', '\x1b[0m');
   } else {
-    console.log(msg, '\x1b[41m', 'Fail');
+    console.log(msg, '\x1b[41m', 'Fail', '\x1b[0m');
   }
 }
 
