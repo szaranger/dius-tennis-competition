@@ -27,8 +27,13 @@ class Match {
     return this.currentGame.pointWonBy(player);
   }
 
-  score() {
-    console.log(this.currentGame.score());
+  score(isTest = false) {
+    const result = this.currentGame.score()
+    if (!isTest) {
+      console.log(result);
+    }
+
+    return result;
   }
 }
 

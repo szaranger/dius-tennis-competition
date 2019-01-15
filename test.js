@@ -4,25 +4,29 @@ const match = new Match('Player 1', 'Player 2');
 
 match.pointWonBy('Player 1');
 match.pointWonBy('Player 2');
-match.score();
+
+test('Points won: Player 1, Player 2, Expected: 0-0, 15-15', '0-0, 15-15', match.score(true))
 
 match.pointWonBy('Player 1');
 match.pointWonBy('Player 1');
-match.score();
+test('Points won: Player 1, Player 1, Expected: 0-0, 40-15', '0-0, 40-15', match.score(true))
 
 match.pointWonBy('Player 2');
 match.pointWonBy('Player 2');
-match.score();
+test('Points won: Player 2, Player 2, Expected: 0-0, Deuce', '0-0, Deuce', match.score(true))
 
 match.pointWonBy('Player 1');
-match.score();
+test('Points won: Player 1, Expected: 0-0, Advantage Player 1', '0-0, Advantage Player 1', match.score(true))
 
 match.pointWonBy('Player 1');
-match.score();
+test('Points won: Player 1, Expected: 1-0', '1-0', match.score(true))
 
 function test(msg, a, b) {
-  console.log(msg);
-  return a === b;
+  if (a === b) {
+    console.log(msg, '\x1b[42m', 'Pass');
+  } else {
+    console.log(msg, '\x1b[41m', 'Fail');
+  }
 }
 
 /*
